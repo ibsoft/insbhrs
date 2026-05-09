@@ -1,0 +1,82 @@
+HOW TO ADD YOUR PROFILE PHOTO
+=============================
+
+Your professional portfolio is ready! Just follow these simple steps to add your photo:
+
+STEP 1: Locate Your Photo
+========================
+The photo you provided needs to be saved in a specific folder.
+
+Expected Location:
+   c:\Users\ioannisb\Documents\Python-Development\insbhrs\static\images\
+
+STEP 2: Save Your Photo
+=======================
+Method A - Using Windows File Explorer (Easiest):
+   1. Open File Explorer
+   2. Navigate to: Documents > Python-Development > insbhrs > static > images
+   3. Copy your profile photo into this folder
+   4. Rename it to: profile.jpg (if it's not already)
+   
+   Note: If your photo is a PNG, you can name it profile.png
+
+Method B - Using Command Prompt:
+   1. Open Command Prompt in the insbhrs folder
+   2. Run: copy "C:\path\to\your\photo.jpg" static\images\profile.jpg
+   3. Replace C:\path\to\your\photo.jpg with your actual photo path
+
+Method C - Using PowerShell:
+   1. Open PowerShell in the insbhrs folder
+   2. Run: Copy-Item "C:\path\to\your\photo.jpg" -Destination "static\images\profile.jpg"
+
+STEP 3: Verify the Photo
+========================
+After saving the photo:
+   1. Check that the file exists: static\images\profile.jpg
+   2. The file size should be more than 0 KB
+   3. Open it to make sure it's your correct photo
+
+STEP 4: Run the Application
+===========================
+Once the photo is in place:
+   1. Double-click: install.bat (first time only)
+   2. Double-click: run.bat (to start the application)
+   3. Open your browser to: http://localhost:5000
+
+PHOTO REQUIREMENTS
+==================
+- Format: JPG or PNG
+- Recommended Size: 500x500 pixels or larger
+- Should be a professional headshot
+- Aspect ratio: Square (1:1) works best
+- Display size: Will be shown as 150x150px circle
+
+TROUBLESHOOTING
+===============
+If your photo doesn't appear:
+   1. Check the file is in: static\images\profile.jpg
+   2. Check the file actually exists (file size > 0)
+   3. Hard refresh your browser: Ctrl+Shift+R
+   4. Clear browser cache and try again
+   5. Check browser console for errors (F12)
+
+If the file keeps disappearing:
+   1. Make sure you're saving in the correct location
+   2. The file shouldn't be a shortcut, but the actual photo
+   3. Make sure the file isn't read-only
+
+QUICK CHECKLIST
+===============
+☐ Photo saved to: static\images\profile.jpg
+☐ Photo file size is > 0 KB
+☐ Photo is a JPG or PNG file
+☐ Photo is a professional headshot
+☐ Run: python app.py (or double-click run.bat)
+☐ Visit: http://localhost:5000
+☐ Photo appears on the page
+
+If you've completed all these steps and the photo still doesn't show:
+   1. Open the JavaScript console in your browser (F12)
+   2. Check for any error messages
+   3. Try renaming the photo to lowercase: profile.jpg (not Profile.jpg)
+   4. Make sure the file extension is correct (.jpg not .jpeg)

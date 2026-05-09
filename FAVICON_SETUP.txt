@@ -1,0 +1,35 @@
+FAVICON SETUP INSTRUCTIONS
+
+The HTML template now includes a favicon link that expects a favicon file at:
+    static/images/favicon.ico
+
+To add your favicon:
+
+1. OPTION A - Use an existing image (Recommended for CyberPhylax branding):
+   - Convert your profile image or CyberPhylax logo to a .ico file
+   - Save it as: static/images/favicon.ico
+   
+   Online converters: https://convertio.co/png-ico/ or similar
+
+2. OPTION B - Create a simple favicon:
+   - Use any .ico, .png, or .jpg file
+   - Supported formats: .ico, .png, .jpg, .gif
+   - Size: 16x16, 32x32, or 64x64 pixels recommended
+   - Place in: static/images/favicon.ico
+
+3. OPTION C - Use a multi-format favicon:
+   - Add multiple favicon formats for better compatibility
+   - Update the template with additional link tags:
+   
+   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+   <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+TESTING:
+   - Clear your browser cache (Ctrl+Shift+Delete or Cmd+Shift+Delete)
+   - Hard refresh the page (Ctrl+F5 or Cmd+Shift+R)
+   - The favicon should appear in the browser tab and bookmarks
+
+RECOMMENDATIONS FOR CYBERPHYLAX:
+   - Use the CyberPhylax logo for consistency
+   - Ensure the image is recognizable at small sizes (16x16px)
+   - Consider using dark green to match your theme

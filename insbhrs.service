@@ -1,0 +1,15 @@
+[Unit]
+Description=INSBHRS Flask Portfolio Application
+After=network.target
+
+[Service]
+Type=notify
+User=www-data
+WorkingDirectory=/var/www/insbhrs
+Environment="PATH=/var/www/insbhrs/venv/bin"
+ExecStart=/var/www/insbhrs/venv/bin/gunicorn --workers 4 --bind 127.0.0.1:5000 app:app
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
