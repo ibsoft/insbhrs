@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,13 @@
     <!-- Header with Profile -->
     <header>
         <div class="header-container">
+            <nav class="language-selector" aria-label="Language selector">
+                {% for code, label in languages.items() %}
+                <a href="{{ url_for('index', lang=code) }}" class="language-option {% if code == current_lang %}active{% endif %}" hreflang="{{ code }}">
+                    {{ label }}
+                </a>
+                {% endfor %}
+            </nav>
             <div class="profile-header">
                 <div class="profile-image">
                     <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile Picture">
@@ -37,7 +44,7 @@
     <main>
         <!-- About Section -->
         <section id="about">
-            <h2><i class="fas fa-user-circle"></i> About Me</h2>
+            <h2><i class="fas fa-user-circle"></i> {{ ui.about }}</h2>
             <p>{{ data.about }}</p>
         </section>
 
@@ -50,10 +57,10 @@
                 </div>
                 <div class="founder-copy">
                     <span class="founder-label">{{ data.brand.role }}</span>
-                    <h2>CEO of <span>{{ data.brand.name }}</span></h2>
+                    <h2>{{ ui.ceo_of }} <span>{{ data.brand.name }}</span></h2>
                     <p>{{ data.brand.description }}</p>
                     <a href="{{ data.brand.url }}" class="btn btn-outline-light" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Visit {{ data.brand.name }}
+                        <i class="fas fa-external-link-alt"></i> {{ ui.visit }} {{ data.brand.name }}
                     </a>
                 </div>
             </div>
@@ -61,18 +68,31 @@
 
         <!-- Education Card -->
         <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h2><i class="fas fa-graduation-cap"></i> {{ ui.education }}</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Military School of Telecommunications</span>
+                    <span>{{ ui.education_name }}</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- Languages Section -->
+        <section id="languages">
+            <h2><i class="fas fa-language"></i> {{ ui.languages }}</h2>
+            <div class="skills-grid">
+                {% for language_name in ui.language_names %}
+                <div class="skill-card">
+                    <i class="fas fa-check-circle"></i>
+                    <span>{{ language_name }}</span>
+                </div>
+                {% endfor %}
             </div>
         </section>
 
         <!-- Experience Section -->
         <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <h2><i class="fas fa-briefcase"></i> {{ ui.professional_experience }}</h2>
             
             {% for job in data.experience %}
             <div class="experience-item">
@@ -96,7 +116,7 @@
 
         <!-- Skills Section -->
         <section id="skills">
-            <h2><i class="fas fa-star"></i> Professional Skills & Certifications</h2>
+            <h2><i class="fas fa-star"></i> {{ ui.skills }}</h2>
             
             <div class="skills-grid">
                 {% for skill in data.skills %}
@@ -110,7 +130,7 @@
 
         <!-- Projects Section -->
         <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> Selected Projects</h2>
+            <h2><i class="fas fa-project-diagram"></i> {{ ui.projects }}</h2>
             <div class="projects-grid">
                 {% for project in data.projects %}
                 <a href="{{ project.url }}" class="project-card" target="_blank">
@@ -128,13 +148,13 @@
 
         <!-- Citizen Science Section -->
         <section id="citizen-science">
-            <h2><i class="fas fa-telescope"></i> Citizen Science</h2>
+            <h2><i class="fas fa-telescope"></i> {{ ui.citizen_science }}</h2>
             <div class="citizen-science-card">
                 <div class="science-content">
                     <h3>{{ data.citizen_science.title }}</h3>
                     <p>{{ data.citizen_science.description }}</p>
                     <a href="{{ data.citizen_science.url }}" class="btn btn-outline-light" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Learn More
+                        <i class="fas fa-external-link-alt"></i> {{ ui.learn_more }}
                     </a>
                 </div>
                 <div class="science-image">
@@ -148,7 +168,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p><span class="terminal-prompt">CONTACT</span></p>
+            <p><span class="terminal-prompt">{{ ui.contact }}</span></p>
             <div class="contact-info">
                 <a href="mailto:security@cyberphylax.com">
                     <i class="fas fa-envelope"></i> security@cyberphylax.com
@@ -161,10 +181,10 @@
                 </a>
             </div>
             <p style="margin-top: 1rem; font-size: 0.85rem;">
-                <i class="fas fa-copyright"></i> 2024 Professional Profile. All rights reserved.
+                <i class="fas fa-copyright"></i> {{ ui.copyright }}
             </p>
             <p style="margin-top: 0.5rem; color: var(--neon-green);">
-                <span class="terminal-prompt">STATUS</span> <i class="fas fa-circle" style="color: #52b788; animation: pulse 2s infinite;"></i> Available for Security Consulting & AI Governance Projects
+                <span class="terminal-prompt">{{ ui.status }}</span> <i class="fas fa-circle" style="color: #52b788; animation: pulse 2s infinite;"></i> {{ ui.available }}
             </p>
         </div>
     </footer>
