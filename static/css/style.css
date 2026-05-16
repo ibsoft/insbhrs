@@ -728,6 +728,27 @@ footer .contact-info a:hover {
     .language-selector {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .language-option {
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        color: var(--terminal-text);
+        text-decoration: underline;
+        text-underline-offset: 0.2rem;
+    }
+
+    .language-option:hover,
+    .language-option.active {
+        color: var(--bright-green);
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
     }
 
     .profile-header {
