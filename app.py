@@ -1,3 +1,4 @@
+from datetime import date
 from flask import Flask, render_template, request
 import os
 
@@ -5,6 +6,27 @@ app = Flask(__name__)
 
 # Create necessary directories if they don't exist
 os.makedirs(os.path.join(app.root_path, 'static', 'images'), exist_ok=True)
+
+
+def experience_duration(range_label, start_year, start_month, end_year=None, end_month=None, language='en'):
+    end = date.today() if end_year is None or end_month is None else date(end_year, end_month, 1)
+    total_months = ((end.year - start_year) * 12) + (end.month - start_month) + 1
+    years, months = divmod(total_months, 12)
+
+    if language == 'es':
+        parts = []
+        if years:
+            parts.append(f"{years} {'año' if years == 1 else 'años'}")
+        if months:
+            parts.append(f"{months} {'mes' if months == 1 else 'meses'}")
+    else:
+        parts = []
+        if years:
+            parts.append(f"{years} {'yr' if years == 1 else 'yrs'}")
+        if months:
+            parts.append(f"{months} {'mo' if months == 1 else 'mos'}")
+
+    return f"{range_label} · {' '.join(parts)}"
 
 
 @app.route('/')
@@ -101,7 +123,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             {
                 'title': 'IT Information Systems Security Manager - Cyber Security & AI/ML Consultant',
                 'company': 'UNIXFOR S.A',
-                'duration': 'Mar 2004 - Present · 22 yrs 3 mos',
+                'duration': experience_duration('Mar 2004 - Present', 2004, 3),
                 'location': 'Greece - Athens',
                 'icon': 'fas fa-shield-alt',
                 'description': 'At UNIXFOR S.A., I work at the intersection of AI governance, cybersecurity, digital transformation, and secure technology operations, helping deliver resilient and practical solutions across complex business and operational environments.\n\nWith more than 13 years of experience in Information Security Management, my focus is on ensuring that emerging technologies, security controls, and operational processes are aligned with real business needs, regulatory expectations, and long-term sustainability. A key part of my role involves supporting the responsible and secure adoption of AI-driven capabilities, including AI governance, Agentic AI, and machine learning-related initiatives, with emphasis on risk management, accountability, oversight, and practical implementation.\n\nIn parallel, I contribute to the strengthening of cybersecurity posture across infrastructure, systems, and operational workflows. My work includes risk assessments, vulnerability analysis, policy development, compliance support, control design, security testing, user awareness, and the implementation of practical countermeasures against evolving threats.\n\nMy broader technical background includes technical architecture, UNIX/Linux and Windows systems, virtualization, cloud computing, networking, and operations management, allowing me to bridge strategy with execution and governance with operational reality.'
@@ -109,7 +131,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             {
                 'title': 'Unix Systems Engineer',
                 'company': 'FIRST TELECOM S.A',
-                'duration': 'Mar 2003 - Mar 2004 · 1 yr 1 mo',
+                'duration': experience_duration('Mar 2003 - Mar 2004', 2003, 3, 2004, 3),
                 'location': 'Greece',
                 'icon': 'fas fa-server',
                 'description': 'Hands-on Network administration manager, with converged-network designs for the internet users. Responsible for the design and implementation of First telecoms ADSL network. Designed and operated the companys Data Center and communication infrastructure. Emphasis in Internet VOIP services, and client connectivity to companys voice network with secure gateways and high SLAs. Responsible for leading teams of Consultants, Engineers and Project Managers in Systems and e-commerce rollouts.'
@@ -117,7 +139,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             {
                 'title': 'Unix Systems Engineer and Network Operations',
                 'company': 'STS-Net',
-                'duration': 'Jan 2002 - Mar 2003 · 1 yr 3 mos',
+                'duration': experience_duration('Jan 2002 - Mar 2003', 2002, 1, 2003, 3),
                 'location': 'Greece',
                 'icon': 'fas fa-network-wired',
                 'description': 'Directed and designed all network backbones, system architecture and IT staff. In charge of all aspects of large and small projects for various clients including involvement in initial marketing, development of presentations, physical layer design and installation of systems, client training, and maintenance of completed systems.'
@@ -125,7 +147,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             {
                 'title': 'Unix Systems Engineer & IT Manager',
                 'company': 'Servcom Ltd.',
-                'duration': 'Jan 2001 - Jan 2002 · 1 yr 1 mo',
+                'duration': experience_duration('Jan 2001 - Jan 2002', 2001, 1, 2002, 1),
                 'location': 'Greece',
                 'icon': 'fas fa-cogs',
                 'description': 'Managing and maintaining Unix networks. Leading companys IT department: I was responsible for the maintenance of a network of SCO Unix computer systems, supporting applications in rm-cobol, that belonged to various shipping, insurance agencies, municipal government agencies, hospital units, Hellenic air-lines etc.'
@@ -133,7 +155,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             {
                 'title': 'Telecommunication Engineer',
                 'company': 'Hellenic Army',
-                'duration': 'Dec 1995 - Dec 2000 · 5 yrs 1 mo',
+                'duration': experience_duration('Dec 1995 - Dec 2000', 1995, 12, 2000, 12),
                 'location': 'Greece',
                 'icon': 'fas fa-military',
                 'description': 'Responsible for a team of military engineers in preserving the army supplies in readiness. I was awarded the highest honors from the Unit\'s General as the most Valuable Team Leader.'
@@ -297,7 +319,7 @@ Más allá de mi actividad profesional, participo activamente en iniciativas de 
                 {
                     'title': 'IT Information Systems Security Manager - Cyber Security & AI/ML Consultant',
                     'company': 'UNIXFOR S.A.',
-                    'duration': 'Marzo de 2004 - Actualidad · 22 años 3 meses',
+                    'duration': experience_duration('Marzo de 2004 - Actualidad', 2004, 3, language='es'),
                     'location': 'Atenas, Grecia',
                     'icon': 'fas fa-shield-alt',
                     'description': """En UNIXFOR S.A. trabajo en la intersección entre gobernanza de inteligencia artificial, ciberseguridad, transformación digital y operaciones tecnológicas seguras. Mi objetivo es ayudar a diseñar y mantener soluciones prácticas, resilientes y alineadas con las necesidades reales del negocio, incluso en entornos operativos complejos.
@@ -313,7 +335,7 @@ Mi experiencia técnica más amplia incluye arquitectura tecnológica, sistemas 
                 {
                     'title': 'Unix Systems Engineer',
                     'company': 'FIRST TELECOM S.A.',
-                    'duration': 'Marzo de 2003 - Marzo de 2004 · 1 año 1 mes',
+                    'duration': experience_duration('Marzo de 2003 - Marzo de 2004', 2003, 3, 2004, 3, language='es'),
                     'location': 'Grecia',
                     'icon': 'fas fa-server',
                     'description': """En FIRST TELECOM S.A. trabajé como ingeniero de sistemas Unix con un rol muy práctico en administración de redes, diseño de infraestructuras convergentes y soporte de servicios de conectividad para usuarios de internet.
@@ -325,7 +347,7 @@ También participé en la coordinación de equipos de consultores, ingenieros y 
                 {
                     'title': 'Unix Systems Engineer and Network Operations',
                     'company': 'STS-Net',
-                    'duration': 'Enero de 2002 - Marzo de 2003 · 1 año 3 meses',
+                    'duration': experience_duration('Enero de 2002 - Marzo de 2003', 2002, 1, 2003, 3, language='es'),
                     'location': 'Grecia',
                     'icon': 'fas fa-network-wired',
                     'description': """En STS-Net fui responsable del diseño y dirección de backbones de red, arquitectura de sistemas y coordinación del equipo técnico de IT. Participé en proyectos de diferentes tamaños para clientes diversos, cubriendo tanto la fase inicial de análisis y presentación como el diseño físico, la instalación, la formación de usuarios y el mantenimiento posterior de los sistemas implementados.
@@ -335,7 +357,7 @@ Este rol me permitió trabajar muy cerca de la operación real de redes y sistem
                 {
                     'title': 'Unix Systems Engineer & IT Manager',
                     'company': 'Servcom Ltd.',
-                    'duration': 'Enero de 2001 - Enero de 2002 · 1 año 1 mes',
+                    'duration': experience_duration('Enero de 2001 - Enero de 2002', 2001, 1, 2002, 1, language='es'),
                     'location': 'Grecia',
                     'icon': 'fas fa-cogs',
                     'description': """En Servcom Ltd. gestioné y mantuve redes Unix, liderando el departamento de IT de la compañía. Fui responsable del mantenimiento de una red de sistemas SCO Unix que daban soporte a aplicaciones desarrolladas en RM/COBOL para distintos tipos de organizaciones.
@@ -345,7 +367,7 @@ Los entornos que atendíamos incluían compañías navieras, agencias de seguros
                 {
                     'title': 'Telecommunication Engineer',
                     'company': 'Hellenic Army',
-                    'duration': 'Diciembre de 1995 - Diciembre de 2000 · 5 años 1 mes',
+                    'duration': experience_duration('Diciembre de 1995 - Diciembre de 2000', 1995, 12, 2000, 12, language='es'),
                     'location': 'Grecia',
                     'icon': 'fas fa-military',
                     'description': """En el Hellenic Army trabajé como ingeniero de telecomunicaciones, liderando un equipo de ingenieros militares responsable de mantener equipamiento, sistemas y suministros en estado operativo y preparados para su uso.
