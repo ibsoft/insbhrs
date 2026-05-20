@@ -13,7 +13,13 @@ def experience_duration(range_label, start_year, start_month, end_year=None, end
     total_months = ((end.year - start_year) * 12) + (end.month - start_month) + 1
     years, months = divmod(total_months, 12)
 
-    if language == 'es':
+    if language == 'el':
+        parts = []
+        if years:
+            parts.append(f"{years} {'έτος' if years == 1 else 'έτη'}")
+        if months:
+            parts.append(f"{months} {'μήνας' if months == 1 else 'μήνες'}")
+    elif language == 'es':
         parts = []
         if years:
             parts.append(f"{years} {'año' if years == 1 else 'años'}")
@@ -48,6 +54,9 @@ def index():
             'professional_experience': 'Professional Experience',
             'skills': 'Professional Skills & Certifications',
             'projects': 'Selected Projects',
+            'projects_intro': 'A selection of security, AI, infrastructure, and citizen-science projects from my public GitHub work.',
+            'featured': 'Featured',
+            'github_profile': 'Go to my GitHub page',
             'citizen_science': 'Citizen Science',
             'visit': 'Visit',
             'ceo_of': 'CEO of',
@@ -66,6 +75,9 @@ def index():
             'professional_experience': 'Επαγγελματική Εμπειρία',
             'skills': 'Επαγγελματικές Δεξιότητες & Πιστοποιήσεις',
             'projects': 'Επιλεγμένα Έργα',
+            'projects_intro': 'Μια επιλογή έργων ασφάλειας, τεχνητής νοημοσύνης, υποδομών και επιστήμης πολιτών από τη δημόσια δουλειά μου στο GitHub.',
+            'featured': 'Προτεινόμενο',
+            'github_profile': 'Μετάβαση στη σελίδα μου στο GitHub',
             'citizen_science': 'Επιστήμη Πολιτών',
             'visit': 'Επίσκεψη',
             'ceo_of': 'CEO της',
@@ -84,6 +96,9 @@ def index():
             'professional_experience': 'Experiencia Profesional',
             'skills': 'Competencias Profesionales y Certificaciones',
             'projects': 'Proyectos Seleccionados',
+            'projects_intro': 'Una selección de proyectos de seguridad, inteligencia artificial, infraestructura y ciencia ciudadana de mi trabajo público en GitHub.',
+            'featured': 'Destacado',
+            'github_profile': 'Ir a mi página de GitHub',
             'citizen_science': 'Ciencia Ciudadana',
             'visit': 'Visitar',
             'ceo_of': 'CEO de',
@@ -190,81 +205,77 @@ Beyond my professional responsibilities, I am also a community instructor, amate
         'projects': [
             {
                 'name': 'HashWhisper',
-                'description': 'A deep analysis tool for advanced hashing and cryptographic workflow automation.',
+                'description': 'A secure chat application for private conversations, using hash-based access so only participants with the shared secret can enter and read the protected messages.',
                 'url': 'https://github.com/ibsoft/HashWhisper',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/HashWhisper'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/HashWhisper',
+                'tags': ['Security', 'Secure Chat', 'Privacy'],
+                'featured': True
             },
             {
                 'name': 'SkyFrame',
-                'description': 'A cloud-native orchestration framework for observability and deployment control.',
+                'description': 'An astronomical image gallery for organizing and presenting sky captures, observations, and visual astronomy material in a clean web interface.',
                 'url': 'https://github.com/ibsoft/SkyFrame',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/SkyFrame'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/SkyFrame',
+                'tags': ['Astronomy', 'Gallery', 'Web App']
             },
             {
                 'name': 'helpdesk_pro',
-                'description': 'A professional support ticketing and helpdesk platform for enterprise teams.',
+                'description': 'An IT helpdesk ticketing system for tracking support requests, managing incidents, and keeping technical service workflows organized.',
                 'url': 'https://github.com/ibsoft/helpdesk_pro',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/helpdesk_pro'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/helpdesk_pro',
+                'tags': ['ITSM', 'Helpdesk', 'Operations'],
+                'featured': True
             },
             {
                 'name': 'CloudRollouts',
-                'description': 'Software release management tooling for cloud-based feature rollouts and canary deployments.',
+                'description': 'A fleet update rollout server for coordinating staged software updates, controlled deployments, and operational release management across many systems.',
                 'url': 'https://github.com/ibsoft/CloudRollouts',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/CloudRollouts'
-            },
-            {
-                'name': 'SkyFrame',
-                'description': 'A cloud-native orchestration framework for observability and deployment control.',
-                'url': 'https://github.com/ibsoft/SkyFrame',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/SkyFrame'
-            },
-            {
-                'name': 'helpdesk_pro',
-                'description': 'A professional support ticketing and helpdesk platform for enterprise teams.',
-                'url': 'https://github.com/ibsoft/helpdesk_pro',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/helpdesk_pro'
-            },
-            {
-                'name': 'CloudRollouts',
-                'description': 'Software release management tooling for cloud-based feature rollouts and canary deployments.',
-                'url': 'https://github.com/ibsoft/CloudRollouts',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/CloudRollouts'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/CloudRollouts',
+                'tags': ['DevOps', 'Deployments', 'Automation']
             },
             {
                 'name': 'CipherDrop',
-                'description': 'Secure secret exchange and encrypted communication tooling for sensitive operations.',
+                'description': 'A one-time, end-to-end encrypted drop system for safely sending sensitive information without leaving long-lived exposed messages behind.',
                 'url': 'https://github.com/ibsoft/CipherDrop',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/CipherDrop'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/CipherDrop',
+                'tags': ['Security', 'Encryption', 'Privacy']
             },
             {
                 'name': 'ELE',
-                'description': 'An enterprise-level engineering platform for secure system design and collaboration.',
+                'description': 'An AI assistant project focused on practical automation, interactive support, and intelligent task handling through a simple application interface.',
                 'url': 'https://github.com/ibsoft/ELE',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/ELE'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/ELE',
+                'tags': ['AI', 'Assistant', 'Automation']
             },
             {
                 'name': 'JAIID_WEB',
-                'description': 'AI-enabled frontend for JΑΙΙD, bringing Jovian impact flash detection insights to a modern web interface.',
+                'description': 'The web interface for JAIID, bringing artificial intelligence impact detection results and astronomy analysis tools into an accessible browser experience.',
                 'url': 'https://github.com/ibsoft/JAIID_WEB',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/JAIID_WEB'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/JAIID_WEB',
+                'tags': ['AI', 'Astronomy', 'Web App']
             },
             {
                 'name': 'JAIID',
-                'description': 'Jovian Artificial Intelligence Impact Detector for real-time detection and analysis of Jupiter impact flashes.',
+                'description': 'The Jovian Artificial Intelligence Impact Detector, an AI-assisted astronomy project for identifying and analyzing possible impact flashes on Jupiter.',
                 'url': 'https://github.com/ibsoft/JAIID',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/JAIID'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/JAIID',
+                'tags': ['AI', 'Astronomy', 'Citizen Science'],
+                'featured': True
             },
             {
                 'name': 'GnuProxy',
-                'description': 'A powerful proxy solution for GNU/Linux environments with advanced security and routing.',
+                'description': 'A secure Postfix mail proxy frontend for building an SMTP gateway between a mail server and the internet with stronger filtering and protection controls.',
                 'url': 'https://github.com/ibsoft/GnuProxy',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/GnuProxy'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/GnuProxy',
+                'tags': ['Mail Security', 'Postfix', 'Infrastructure']
             },
             {
                 'name': 'BlackFox',
-                'description': 'A stealthy security and monitoring toolkit designed for advanced defensive operations.',
+                'description': 'A Bash-based administration tool that builds bad-reputation blocking lists for NGINX, Apache, and UFW Firewall using data from 218 list providers.',
                 'url': 'https://github.com/ibsoft/BlackFox',
-                'image': 'https://opengraph.githubassets.com/1/ibsoft/BlackFox'
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/BlackFox',
+                'tags': ['Security', 'Bash', 'Firewall'],
+                'featured': True
             }
         ],
         'citizen_science': {
@@ -291,6 +302,64 @@ Beyond my professional responsibilities, I am also a community instructor, amate
 Τα τελευταία χρόνια το ενδιαφέρον μου έχει στραφεί όλο και περισσότερο στην τεχνητή νοημοσύνη, στη διακυβέρνηση AI και στον ασφαλή σχεδιασμό αυτόνομων συστημάτων. Ασχολούμαι με prompt engineering, έλεγχο συμπεριφοράς AI, model integrity, agent workflows, AI orchestration, prompt injection analysis, adversarial AI defense, model exploit research, LLM security και αξιοποίηση της AI για τον μετασχηματισμό επιχειρησιακών διαδικασιών.
 
 Πέρα από την επαγγελματική μου δραστηριότητα, συμμετέχω ενεργά σε δράσεις εκπαίδευσης, επιστήμης και τεχνολογίας. Είμαι εκπαιδευτής κοινότητας, ερασιτέχνης αστρονόμος, συνεισφέρω στην ανάπτυξη αστρονομικών και επιστημονικών εφαρμογών με AI και συμμετέχω σε προγράμματα αστρονομίας ως πολίτης επιστήμονας (citizen scientist). Με ενδιαφέρει ιδιαίτερα η σύνδεση της επιστήμης με την κοινότητα και η διάδοση της γνώσης με τρόπο πρακτικό, αξιόπιστο και ουσιαστικό.""",
+            'experience': [
+                {
+                    'title': 'Διαχειριστής Ασφάλειας Πληροφοριακών Συστημάτων - Κυβερνοασφάλεια & Σύμβουλος AI/ML',
+                    'company': 'UNIXFOR S.A.',
+                    'duration': experience_duration('Μάρτιος 2004 - Σήμερα', 2004, 3, language='el'),
+                    'location': 'Αθήνα, Ελλάδα',
+                    'icon': 'fas fa-shield-alt',
+                    'description': """Στην UNIXFOR S.A. εργάζομαι στο σημείο όπου συναντιούνται η κυβερνοασφάλεια, η διακυβέρνηση τεχνητής νοημοσύνης, ο ψηφιακός μετασχηματισμός και η ασφαλής λειτουργία τεχνολογικών υποδομών. Ο ρόλος μου είναι να βοηθώ στη δημιουργία λύσεων που δεν είναι μόνο τεχνικά σωστές, αλλά και πρακτικές, ανθεκτικές και ευθυγραμμισμένες με τις πραγματικές ανάγκες της επιχείρησης.
+
+Με πολυετή εμπειρία στη διαχείριση ασφάλειας πληροφοριών, δίνω έμφαση στη σύνδεση των τεχνολογιών, των ελέγχων ασφαλείας και των διαδικασιών με τη στρατηγική, τη συμμόρφωση και τη βιωσιμότητα του οργανισμού. Τα τελευταία χρόνια σημαντικό μέρος της δουλειάς μου αφορά την υπεύθυνη και ασφαλή υιοθέτηση λύσεων AI, Agentic AI και machine learning, με έμφαση στη διαχείριση κινδύνου, τη λογοδοσία, την επίβλεψη και την πρακτική εφαρμογή.
+
+Παράλληλα, συμβάλλω στην ενίσχυση της κυβερνοασφάλειας σε υποδομές, συστήματα και επιχειρησιακές ροές. Η καθημερινή μου δουλειά περιλαμβάνει αξιολογήσεις κινδύνου, ανάλυση ευπαθειών, πολιτικές ασφάλειας, υποστήριξη συμμόρφωσης, σχεδιασμό ελέγχων, δοκιμές ασφάλειας, ευαισθητοποίηση χρηστών και πρακτικά μέτρα προστασίας απέναντι σε εξελισσόμενες απειλές.
+
+Το ευρύτερο τεχνικό μου υπόβαθρο σε UNIX/Linux, Windows, virtualization, cloud, δίκτυα και λειτουργία συστημάτων με βοηθά να γεφυρώνω τη στρατηγική με την υλοποίηση και τη διακυβέρνηση με την πραγματική καθημερινότητα των τεχνικών ομάδων."""
+                },
+                {
+                    'title': 'Unix Systems Engineer',
+                    'company': 'FIRST TELECOM S.A.',
+                    'duration': experience_duration('Μάρτιος 2003 - Μάρτιος 2004', 2003, 3, 2004, 3, language='el'),
+                    'location': 'Ελλάδα',
+                    'icon': 'fas fa-server',
+                    'description': """Στη FIRST TELECOM S.A. εργάστηκα ως Unix Systems Engineer με άμεση εμπλοκή στη διαχείριση δικτύων, στον σχεδιασμό συγκλινουσών υποδομών και στην υποστήριξη υπηρεσιών συνδεσιμότητας για χρήστες internet.
+
+Είχα την ευθύνη για τον σχεδιασμό και την υλοποίηση του ADSL δικτύου της εταιρείας, καθώς και για τον σχεδιασμό, τη λειτουργία και τη συντήρηση του Data Center και της επικοινωνιακής υποδομής. Η δουλειά μου είχε έντονη έμφαση σε υπηρεσίες internet, VoIP και ασφαλή διασύνδεση πελατών με το φωνητικό δίκτυο της εταιρείας, με στόχο υψηλή διαθεσιμότητα και σταθερή ποιότητα υπηρεσίας.
+
+Συμμετείχα επίσης στον συντονισμό ομάδων συμβούλων, μηχανικών και project managers για υλοποιήσεις συστημάτων, λύσεις e-commerce και τεχνολογικές υποδομές προσανατολισμένες στις ανάγκες πελατών."""
+                },
+                {
+                    'title': 'Unix Systems Engineer και Network Operations',
+                    'company': 'STS-Net',
+                    'duration': experience_duration('Ιανουάριος 2002 - Μάρτιος 2003', 2002, 1, 2003, 3, language='el'),
+                    'location': 'Ελλάδα',
+                    'icon': 'fas fa-network-wired',
+                    'description': """Στην STS-Net είχα την ευθύνη για τον σχεδιασμό και την καθοδήγηση δικτυακών backbones, αρχιτεκτονικής συστημάτων και τεχνικών ομάδων IT. Συμμετείχα σε μικρά και μεγάλα έργα για διαφορετικούς πελάτες, από την αρχική ανάλυση και παρουσίαση μέχρι τον φυσικό σχεδιασμό, την εγκατάσταση, την εκπαίδευση χρηστών και τη συντήρηση των ολοκληρωμένων συστημάτων.
+
+Ο ρόλος αυτός μου έδωσε βαθιά επαφή με την πραγματική λειτουργία δικτύων και συστημάτων, συνδυάζοντας τεχνικό σχεδιασμό, υλοποίηση στο πεδίο, υποστήριξη πελατών και διαχείριση ομάδων."""
+                },
+                {
+                    'title': 'Unix Systems Engineer & IT Manager',
+                    'company': 'Servcom Ltd.',
+                    'duration': experience_duration('Ιανουάριος 2001 - Ιανουάριος 2002', 2001, 1, 2002, 1, language='el'),
+                    'location': 'Ελλάδα',
+                    'icon': 'fas fa-cogs',
+                    'description': """Στη Servcom Ltd. διαχειρίστηκα και συντήρησα Unix δίκτυα, έχοντας παράλληλα την ευθύνη του τμήματος IT της εταιρείας. Υποστήριζα δίκτυο συστημάτων SCO Unix που φιλοξενούσαν εφαρμογές RM/COBOL για οργανισμούς με κρίσιμες επιχειρησιακές ανάγκες.
+
+Οι πελάτες περιλάμβαναν ναυτιλιακές εταιρείες, ασφαλιστικά γραφεία, δημοτικούς οργανισμούς, νοσοκομειακές μονάδες, αεροπορικές εταιρείες και άλλους φορείς που βασίζονταν στη σταθερότητα των συστημάτων τους. Η εμπειρία αυτή ενίσχυσε την ικανότητά μου να δουλεύω με legacy περιβάλλοντα, παραγωγικά συστήματα και πελάτες που χρειάζονται αξιοπιστία στην πράξη."""
+                },
+                {
+                    'title': 'Μηχανικός Τηλεπικοινωνιών',
+                    'company': 'Ελληνικός Στρατός',
+                    'duration': experience_duration('Δεκέμβριος 1995 - Δεκέμβριος 2000', 1995, 12, 2000, 12, language='el'),
+                    'location': 'Ελλάδα',
+                    'icon': 'fas fa-military',
+                    'description': """Στον Ελληνικό Στρατό υπηρέτησα ως μηχανικός τηλεπικοινωνιών, έχοντας την ευθύνη ομάδας στρατιωτικών μηχανικών για τη διατήρηση εξοπλισμού, συστημάτων και υλικών σε επιχειρησιακή ετοιμότητα.
+
+Αυτή η περίοδος διαμόρφωσε ουσιαστικά τον επαγγελματικό μου χαρακτήρα. Μου έδωσε πειθαρχία, αίσθημα ευθύνης, ηγεσία υπό πίεση και προσανατολισμό στην αποστολή. Κατά τη διάρκεια της υπηρεσίας μου έλαβα την ανώτερη αναγνώριση της Μονάδας από τον Στρατηγό ως Most Valuable Team Leader, τιμή που αντανακλά τη συνέπεια, την αξιοπιστία και την προσπάθεια της ομάδας που είχα την ευθύνη να καθοδηγώ."""
+                }
+            ],
             'citizen_science': {
                 'title': 'Ανίχνευση λάμψεων πρόσκρουσης στον Δία και ερασιτεχνική αστρονομία',
                 'description': """Ως ενεργός πολίτης επιστήμονας (citizen scientist) και ερασιτέχνης αστρονόμος, συμμετέχω σε δράσεις που συνδυάζουν την παρατήρηση του ουρανού, την επιστημονική μεθοδολογία και την τεχνητή νοημοσύνη. Το ενδιαφέρον μου εστιάζει ιδιαίτερα στην παρακολούθηση του Δία και στην ανίχνευση πιθανών λάμψεων πρόσκρουσης, ένα πεδίο όπου οι ερασιτέχνες αστρονόμοι μπορούν να προσφέρουν πραγματική αξία στην επιστημονική κοινότητα.
@@ -389,6 +458,92 @@ A través de JAIID, contribuyo a acercar métodos científicos profesionales a l
             profile_data[key].update(value)
         else:
             profile_data[key] = value
+
+    project_description_translations = {
+        'el': {
+            'HashWhisper': 'Ασφαλής εφαρμογή συνομιλίας για ιδιωτικές συζητήσεις, με πρόσβαση βασισμένη σε hash ώστε μόνο οι συμμετέχοντες με το κοινό μυστικό να μπορούν να μπουν και να διαβάσουν τα προστατευμένα μηνύματα.',
+            'SkyFrame': 'Συλλογή αστρονομικών εικόνων για οργάνωση και παρουσίαση λήψεων ουρανού, παρατηρήσεων και οπτικού υλικού αστρονομίας μέσα από καθαρό web περιβάλλον.',
+            'helpdesk_pro': 'Σύστημα IT helpdesk για παρακολούθηση αιτημάτων υποστήριξης, διαχείριση περιστατικών και οργάνωση τεχνικών ροών εργασίας.',
+            'CloudRollouts': 'Διακομιστής διάθεσης ενημερώσεων για στόλους συστημάτων, με υποστήριξη σταδιακών αναβαθμίσεων και ελεγχόμενων παραγωγικών deployments.',
+            'CipherDrop': 'Σύστημα μίας χρήσης, end-to-end κρυπτογραφημένων αποστολών για ασφαλή μεταφορά ευαίσθητων πληροφοριών χωρίς μακροχρόνια εκτεθειμένα μηνύματα.',
+            'ELE': 'Έργο βοηθού τεχνητής νοημοσύνης με έμφαση στην πρακτική αυτοματοποίηση, τη διαδραστική υποστήριξη και τη διαχείριση εργασιών μέσα από απλό περιβάλλον εφαρμογής.',
+            'JAIID_WEB': 'Το web περιβάλλον του JAIID, που φέρνει αποτελέσματα ανίχνευσης προσκρούσεων με τεχνητή νοημοσύνη και εργαλεία αστρονομικής ανάλυσης στον browser.',
+            'JAIID': 'Το Jovian Artificial Intelligence Impact Detector, ένα AI-assisted έργο αστρονομίας για εντοπισμό και ανάλυση πιθανών λάμψεων πρόσκρουσης στον Δία.',
+            'GnuProxy': 'Ασφαλές frontend mail proxy για Postfix, σχεδιασμένο για δημιουργία SMTP gateway ανάμεσα σε mail server και internet με ενισχυμένα φίλτρα και ελέγχους προστασίας.',
+            'BlackFox': 'Εργαλείο διαχείρισης σε Bash που δημιουργεί λίστες αποκλεισμού κακής φήμης για NGINX, Apache και UFW Firewall, αξιοποιώντας δεδομένα από 218 παρόχους λιστών.'
+        },
+        'es': {
+            'HashWhisper': 'Aplicación de chat segura para conversaciones privadas, con acceso basado en hashes para que solo los participantes con el secreto compartido puedan entrar y leer los mensajes protegidos.',
+            'SkyFrame': 'Galería de imágenes astronómicas para organizar y presentar capturas del cielo, observaciones y material visual de astronomía en una interfaz web limpia.',
+            'helpdesk_pro': 'Sistema de tickets para IT helpdesk orientado al seguimiento de solicitudes de soporte, la gestión de incidencias y la organización de flujos técnicos.',
+            'CloudRollouts': 'Servidor de despliegue de actualizaciones para flotas de sistemas, pensado para coordinar actualizaciones graduales y despliegues controlados.',
+            'CipherDrop': 'Sistema de entregas cifradas de extremo a extremo y de un solo uso para enviar información sensible sin dejar mensajes expuestos de larga duración.',
+            'ELE': 'Proyecto de asistente de inteligencia artificial centrado en automatización práctica, soporte interactivo y gestión inteligente de tareas desde una interfaz sencilla.',
+            'JAIID_WEB': 'La interfaz web de JAIID, que lleva resultados de detección de impactos con inteligencia artificial y herramientas de análisis astronómico al navegador.',
+            'JAIID': 'El Jovian Artificial Intelligence Impact Detector, un proyecto de astronomía asistido por IA para identificar y analizar posibles destellos de impacto en Júpiter.',
+            'GnuProxy': 'Frontend seguro de proxy de correo para Postfix, diseñado para crear una pasarela SMTP entre un servidor de correo e internet con filtros y controles de protección reforzados.',
+            'BlackFox': 'Herramienta de administración basada en Bash que genera listas de bloqueo de mala reputación para NGINX, Apache y UFW Firewall usando datos de 218 proveedores de listas.'
+        }
+    }
+
+    for project in profile_data['projects']:
+        localized_description = project_description_translations.get(current_lang, {}).get(project['name'])
+        if localized_description:
+            project['description'] = localized_description
+
+    project_tag_translations = {
+        'el': {
+            'Security': 'Ασφάλεια',
+            'Secure Chat': 'Ασφαλής συνομιλία',
+            'Privacy': 'Ιδιωτικότητα',
+            'Astronomy': 'Αστρονομία',
+            'Gallery': 'Συλλογή',
+            'Web App': 'Web εφαρμογή',
+            'ITSM': 'ITSM',
+            'Helpdesk': 'Helpdesk',
+            'Operations': 'Λειτουργία',
+            'DevOps': 'DevOps',
+            'Deployments': 'Deployments',
+            'Automation': 'Αυτοματοποίηση',
+            'Encryption': 'Κρυπτογράφηση',
+            'AI': 'AI',
+            'Assistant': 'Βοηθός',
+            'Citizen Science': 'Επιστήμη πολιτών',
+            'Mail Security': 'Ασφάλεια email',
+            'Postfix': 'Postfix',
+            'Infrastructure': 'Υποδομές',
+            'Bash': 'Bash',
+            'Firewall': 'Firewall'
+        },
+        'es': {
+            'Security': 'Seguridad',
+            'Secure Chat': 'Chat seguro',
+            'Privacy': 'Privacidad',
+            'Astronomy': 'Astronomía',
+            'Gallery': 'Galería',
+            'Web App': 'Aplicación web',
+            'ITSM': 'ITSM',
+            'Helpdesk': 'Helpdesk',
+            'Operations': 'Operaciones',
+            'DevOps': 'DevOps',
+            'Deployments': 'Despliegues',
+            'Automation': 'Automatización',
+            'Encryption': 'Cifrado',
+            'AI': 'IA',
+            'Assistant': 'Asistente',
+            'Citizen Science': 'Ciencia ciudadana',
+            'Mail Security': 'Seguridad de correo',
+            'Postfix': 'Postfix',
+            'Infrastructure': 'Infraestructura',
+            'Bash': 'Bash',
+            'Firewall': 'Firewall'
+        }
+    }
+
+    if current_lang in project_tag_translations:
+        tag_translations = project_tag_translations[current_lang]
+        for project in profile_data['projects']:
+            project['tags'] = [tag_translations.get(tag, tag) for tag in project.get('tags', [])]
 
     return render_template(
         'index.html',

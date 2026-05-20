@@ -130,7 +130,14 @@
 
         <!-- Projects Section -->
         <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> {{ ui.projects }}</h2>
+            <div class="section-heading-row">
+                <h2><i class="fas fa-project-diagram"></i> {{ ui.projects }}</h2>
+                <a href="https://github.com/ibsoft" class="github-profile-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <span>{{ ui.github_profile }}</span>
+                </a>
+            </div>
+            <p class="projects-intro">{{ ui.projects_intro }}</p>
             <div class="projects-grid">
                 {% for project in data.projects %}
                 <a href="{{ project.url }}" class="project-card" target="_blank">
@@ -138,8 +145,18 @@
                         <img src="{{ project.image }}" alt="{{ project.name }} screenshot">
                     </div>
                     <div class="project-content">
-                        <h3>{{ project.name }}</h3>
+                        <div class="project-title-row">
+                            <h3>{{ project.name }}</h3>
+                            {% if project.featured %}
+                            <span class="project-featured">{{ ui.featured }}</span>
+                            {% endif %}
+                        </div>
                         <p>{{ project.description }}</p>
+                        <div class="project-tags" aria-label="Project tags">
+                            {% for tag in project.tags %}
+                            <span>{{ tag }}</span>
+                            {% endfor %}
+                        </div>
                     </div>
                 </a>
                 {% endfor %}
