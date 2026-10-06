@@ -52,7 +52,7 @@ def index():
             'education': 'Education',
             'languages': 'Languages',
             'professional_experience': 'Professional Experience',
-            'skills': 'Professional Skills & Certifications',
+            'skills': 'Professional Skills',
             'projects': 'Selected Projects',
             'projects_intro': 'A selection of security, AI, infrastructure, and citizen-science projects from my public GitHub work.',
             'featured': 'Featured',
@@ -115,7 +115,7 @@ def index():
     # Professional data
     profile_data = {
         'name': 'Security Professional',
-        'title': 'Information Systems Security Manager - Cyber Security - ML/AI Consultant - VAPT - Researcher',
+        'title': 'AI Security Engineer | Information Security Manager | Security Architect | Agentic AI & LLM Security | Offensive Security',
         'brand': {
             'name': 'CyberPhylax',
             'url': 'https://cyberphylax.com',
@@ -204,6 +204,30 @@ Beyond my professional responsibilities, I am also a community instructor, amate
         ],
         'projects': [
             {
+                'name': 'Apex',
+                'description': 'A self-hosted AI assistant for Linux with always-on wake-word voice control, a tool-using agent core with skills, ChromaDB long-term memory, web search, Obsidian integration, and local model support.',
+                'url': 'https://github.com/ibsoft/Apex',
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/Apex',
+                'tags': ['AI', 'Voice Assistant', 'Agents'],
+                'featured': True
+            },
+            {
+                'name': 'AI-Security-Lab',
+                'description': 'An open-source benchmarking tool that tests AI models and agents against thousands of OWASP-aligned security test cases covering prompt injection, jailbreaks, data exfiltration, excessive agency, and agent abuse.',
+                'url': 'https://github.com/ibsoft/AI-Security-Lab',
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/AI-Security-Lab',
+                'tags': ['AI Security', 'Benchmarking', 'OWASP'],
+                'featured': True
+            },
+            {
+                'name': 'Ulysses',
+                'description': 'A local-first Kali/Linux security assistant for authorized vulnerability assessment and penetration testing, with voice input, semantic memory, skill execution, policy-controlled command running, and customer-ready reporting.',
+                'url': 'https://github.com/ibsoft/ulysses',
+                'image': 'https://opengraph.githubassets.com/1/ibsoft/ulysses',
+                'tags': ['Offensive Security', 'AI Agent', 'Penetration Testing'],
+                'featured': True
+            },
+            {
                 'name': 'HashWhisper',
                 'description': 'A secure chat application for private conversations, using hash-based access so only participants with the shared secret can enter and read the protected messages.',
                 'url': 'https://github.com/ibsoft/HashWhisper',
@@ -288,7 +312,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
 
     localized_profile = {
         'el': {
-            'title': 'Διαχειριστής Ασφάλειας Πληροφοριακών Συστημάτων - Κυβερνοασφάλεια - Σύμβουλος ML/AI - VAPT - Ερευνητής',
+            'title': 'AI Security Engineer | Information Security Manager | Security Architect | Agentic AI & LLM Security | Offensive Security',
             'brand': {
                 'role': 'Ιδρυτής',
                 'description': 'Ηγεσία της CyberPhylax Offensive Security με αποστολή τον εντοπισμό, την πρόληψη και την άμυνα σύγχρονων οργανισμών που αξιοποιούν AI απέναντι σε σύγχρονες απειλές.'
@@ -368,7 +392,7 @@ Beyond my professional responsibilities, I am also a community instructor, amate
             }
         },
         'es': {
-            'title': 'Responsable de Seguridad de Sistemas de Información - Ciberseguridad - Consultor ML/IA - VAPT - Investigador',
+            'title': 'Ingeniero de Seguridad de IA | Gerente de Seguridad de la Información | Arquitecto de Seguridad | Seguridad de IA Agéntica y LLM | Seguridad Ofensiva',
             'brand': {
                 'role': 'Fundador',
                 'description': """Lidero CyberPhylax Offensive Security con una misión clara: ayudar a las organizaciones modernas, cada vez más impulsadas por IA, a detectar riesgos reales, prevenir incidentes y fortalecer sus defensas frente a las amenazas actuales.
@@ -470,7 +494,10 @@ A través de JAIID, contribuyo a acercar métodos científicos profesionales a l
             'JAIID_WEB': 'Το web περιβάλλον του JAIID, που φέρνει αποτελέσματα ανίχνευσης προσκρούσεων με τεχνητή νοημοσύνη και εργαλεία αστρονομικής ανάλυσης στον browser.',
             'JAIID': 'Το Jovian Artificial Intelligence Impact Detector, ένα AI-assisted έργο αστρονομίας για εντοπισμό και ανάλυση πιθανών λάμψεων πρόσκρουσης στον Δία.',
             'GnuProxy': 'Ασφαλές frontend mail proxy για Postfix, σχεδιασμένο για δημιουργία SMTP gateway ανάμεσα σε mail server και internet με ενισχυμένα φίλτρα και ελέγχους προστασίας.',
-            'BlackFox': 'Εργαλείο διαχείρισης σε Bash που δημιουργεί λίστες αποκλεισμού κακής φήμης για NGINX, Apache και UFW Firewall, αξιοποιώντας δεδομένα από 218 παρόχους λιστών.'
+            'BlackFox': 'Εργαλείο διαχείρισης σε Bash που δημιουργεί λίστες αποκλεισμού κακής φήμης για NGINX, Apache και UFW Firewall, αξιοποιώντας δεδομένα από 218 παρόχους λιστών.',
+            'Apex': 'Αυτοφιλογενής βοηθός AI για Linux με πάντοτε ενεργή φωνητική λειτουργία μέσω wake word, πυρήνα πράκτορα με εργαλεία και δεξιότητες, μακροχρόνια μνήμη ChromaDB, αναζήτηση στο web, ενσωμάτωση Obsidian και υποστήριξη τοπικών μοντέλων.',
+            'AI-Security-Lab': 'Εργαλείο ανοιχτού κώδικα που αξιολογεί μοντέλα και πράκτους AI με χιλιάδες δοκιμές ασφάλειας σύμφωνες με το OWASP, καλύπτοντας prompt injection, jailbreak, εξαγωγή δεδομένων, υπερβολική δράση και κακόβουλες ενέργειες πράκτορων.',
+            'Ulysses': 'Τοπικός βοηθός ασφάλειας για Kali/Linux, σχεδιασμένος για εξουσιοδοτημένη αξιολόγηση ευπάθειας και penetration testing, με φωνητική είσοδο, σημασιολογική μνήμη, εκτέλεση δεξιοτήτων, ελεγχόμενη εκτέλεση εντολών και αναφορές έτοιμες για πελάτες.'
         },
         'es': {
             'HashWhisper': 'Aplicación de chat segura para conversaciones privadas, con acceso basado en hashes para que solo los participantes con el secreto compartido puedan entrar y leer los mensajes protegidos.',
@@ -482,7 +509,10 @@ A través de JAIID, contribuyo a acercar métodos científicos profesionales a l
             'JAIID_WEB': 'La interfaz web de JAIID, que lleva resultados de detección de impactos con inteligencia artificial y herramientas de análisis astronómico al navegador.',
             'JAIID': 'El Jovian Artificial Intelligence Impact Detector, un proyecto de astronomía asistido por IA para identificar y analizar posibles destellos de impacto en Júpiter.',
             'GnuProxy': 'Frontend seguro de proxy de correo para Postfix, diseñado para crear una pasarela SMTP entre un servidor de correo e internet con filtros y controles de protección reforzados.',
-            'BlackFox': 'Herramienta de administración basada en Bash que genera listas de bloqueo de mala reputación para NGINX, Apache y UFW Firewall usando datos de 218 proveedores de listas.'
+            'BlackFox': 'Herramienta de administración basada en Bash que genera listas de bloqueo de mala reputación para NGINX, Apache y UFW Firewall usando datos de 218 proveedores de listas.',
+            'Apex': 'Asistente de IA autoalojado para Linux con control por voz siempre activo mediante palabra de despertar, núcleo de agente con herramientas y habilidades, memoria a largo plazo con ChromaDB, búsqueda web, integración con Obsidian y soporte de modelos locales.',
+            'AI-Security-Lab': 'Herramienta de benchmarking de código abierto que evalúa modelos y agentes de IA con miles de pruebas de seguridad alineadas con OWASP, cubriendo prompt injection, jailbreaks, exfiltración de datos, agencia excesiva y abuso de agentes.',
+            'Ulysses': 'Asistente de seguridad local para Kali/Linux enfocado en evaluación de vulnerabilidades y penetration testing autorizados, con entrada por voz, memoria semántica, ejecución de habilidades, ejecución de comandos con políticas y listos para entrega al cliente.'
         }
     }
 
@@ -513,7 +543,14 @@ A través de JAIID, contribuyo a acercar métodos científicos profesionales a l
             'Postfix': 'Postfix',
             'Infrastructure': 'Υποδομές',
             'Bash': 'Bash',
-            'Firewall': 'Firewall'
+            'Firewall': 'Firewall',
+            'Voice Assistant': 'Βοηθός φωνής',
+            'Agents': 'Πράκτορες',
+            'AI Security': 'Ασφάλεια AI',
+            'Benchmarking': 'Benchmarking',
+            'OWASP': 'OWASP',
+            'Offensive Security': 'Επιθετική ασφάλεια',
+            'Penetration Testing': 'Penetration Testing'
         },
         'es': {
             'Security': 'Seguridad',
@@ -536,7 +573,14 @@ A través de JAIID, contribuyo a acercar métodos científicos profesionales a l
             'Postfix': 'Postfix',
             'Infrastructure': 'Infraestructura',
             'Bash': 'Bash',
-            'Firewall': 'Firewall'
+            'Firewall': 'Firewall',
+            'Voice Assistant': 'Asistente de voz',
+            'Agents': 'Agentes',
+            'AI Security': 'Seguridad de IA',
+            'Benchmarking': 'Benchmarking',
+            'OWASP': 'OWASP',
+            'Offensive Security': 'Seguridad ofensiva',
+            'Penetration Testing': 'Penetration testing'
         }
     }
 
